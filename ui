@@ -1842,8 +1842,9 @@ function library:Init(key)
                         ChosenKey = InputWait.KeyCode.Name
                     end
                 end)
-    
-                local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
+                local ChatService = game:GetService("Chat")
+                local Player = game.Players.LocalPlayer
+                local ChatTextBox = Player.PlayerGui:WaitForChild("Chat"):WaitForChild("Frame"):WaitForChild("ChatBarParentFrame"):WaitForChild("Frame"):WaitForChild("BoxFrame"):WaitForChild("Frame"):WaitForChild("ChatBar")
                 if UserInputService.WindowFocused then
                     UserInputService.InputBegan:Connect(function(c, p)
                         if not p then
